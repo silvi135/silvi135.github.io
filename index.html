@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fillable PDF Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h2 class="container">Precision Monitoring</h2>
+  <h3 class="container">Generate a PDF file.</h3>
+
+  <div class="container">
+    <input type="button" value="Create PDF" onclick="generatePDF()">
+  </div>
+
+  <!-- <h2 style="color:blue">
+    Precision Monitoring
+  </h2>
+  <h3>
+    Generate a PDF file.
+  </h3>
+
+  <div class="container">
+    <input type="button" value="Create PDF" onclick="generatePDF()">
+  </div> -->
+
+  <script type="text/javascript">
+    function generatePDF() {
+      const { jsPDF, AcroFormTextField } = window.jspdf;
+      const doc = new jsPDF();
+
+      const labelFontSize = 12;
+      const labelX = 20;
+      const labelY = 15;
+
+      const fieldFontSize = 12;
+      const fieldX = 20;
+      const fieldY = 20;
+      const fieldWidth = 80;
+      const fieldHeight = 10;
+
+      // Field outline
+      doc.setFontSize(labelFontSize);
+      doc.text('Name:', fieldX, labelY);
+      doc.setFontSize(fieldFontSize);
+      doc.rect(fieldX, fieldY, fieldWidth, fieldHeight);
+
+      var nameTextField = new AcroFormTextField();
+      nameTextField.showWhenPrinted = true;
+      nameTextField.Rect = [fieldX, fieldY, fieldWidth, fieldHeight];
+      doc.addField(nameTextField);
+
+      
+      doc.setFontSize(labelFontSize);
+      doc.text('CHI number:', fieldX + 95, labelY);
+      doc.setFontSize(fieldFontSize);
+      doc.rect(fieldX + 95, fieldY, fieldWidth, fieldHeight);
+
+      var chiTextField = new AcroFormTextField();
+      chiTextField.Rect = [fieldX + 95, fieldY, fieldWidth, fieldHeight];
+      doc.addField(chiTextField);
+
+      doc.save("data-gathering.pdf");
+    }            
+  </script>
+
+</body>
+
+</html>
