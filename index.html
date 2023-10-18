@@ -9,8 +9,38 @@
 
 <body>
 
-  <h2 class="container">Precision Monitoring</h2>
-  <h3 class="container">Generate a PDF file.</h3>
+  <div class="navbar">
+    <div class="navbar-title">
+      Data Gathering
+    </div>
+  </div>
+  
+  <table>
+    <tr>
+      <th></th>
+      <th style="background-color: rgb(194, 53, 53);">Questionnaires</th>
+      <th style="background-color: rgba(255, 0, 0, 0.797);">History</th>
+      <th style="background-color: orange;">Examination</th>
+      <th style="background-color: yellow;">Investigations</th>
+      <th style="background-color: rgb(46, 179, 46);">Risk scores</th>
+      <th style="background-color: rgb(65, 133, 228);">Frequency</th>
+    </tr>
+    <tr>
+      <td>All assesments</td>
+      <td>Lifestyle Assesment</td>
+      <td>Personal Goal&#10; Adherence&#10; FH CVD&#10; (Vaccinations)&#10; (Screening)</td>
+      <td>Weight</td>
+    </tr>
+    <tr>
+      <td>Diabetes type 2</td>
+      <td class="no-show"></td>
+      <td class="no-show"></td>
+      <td>BP&#10; Foot Screening</td>
+      <td>HBA1c&#10; UE&#10; Lipids&#10; ACR</td>
+      <td>FRAX (if > 50)&#10; ASSIGN (if not on statin)</td>
+      <td>Annualy if HBA1c in range&#10; 6 monthly if HBA1c above target</td>
+    </tr>
+  </table>
 
   <div class="container">
     <input type="button" value="Create PDF" onclick="generatePDF()">
